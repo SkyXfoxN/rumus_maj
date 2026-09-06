@@ -1,0 +1,176 @@
+/* app.css */
+:root{
+  --ink:#12293D; --slate:#234B69; --teal:#13716E; --ocean:#3C88A6;
+  --amber:#CE7C2A; --crimson:#9E3B3B; --moss:#5C8A5E;
+  --mist:#EFF3F6; --mist2:#E3EAEF; --line:#D5DEE5;
+  --text:#1B2A36; --muted:#6B7F8D; --ice:#9BC7D6;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#E8ECEF;font-family:Calibri,"Segoe UI",system-ui,sans-serif;color:var(--text)}
+
+/* ── Bar kawalan ───────────────────────────────────────── */
+.bar{position:sticky;top:0;z-index:50;background:var(--ink);color:#fff;
+  padding:14px 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  box-shadow:0 2px 10px rgba(0,0,0,.18)}
+.bar h1{font-family:Cambria,Georgia,serif;font-size:18px;margin:0;font-weight:700;letter-spacing:.2px}
+.bar .sp{flex:1}
+.btn{border:0;border-radius:7px;padding:9px 16px;font-size:13.5px;font-weight:600;
+  cursor:pointer;font-family:inherit;transition:.15s;white-space:nowrap}
+.btn-p{background:var(--teal);color:#fff}
+.btn-p:hover{background:#0f5f5d}
+.btn-s{background:rgba(255,255,255,.13);color:#fff}
+.btn-s:hover{background:rgba(255,255,255,.22)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.pill{font-size:12px;background:rgba(255,255,255,.12);padding:5px 11px;border-radius:20px;color:var(--ice)}
+input[type=file]{display:none}
+.sel{background:rgba(255,255,255,.13);color:#fff;border:0;border-radius:7px;
+  padding:9px 12px;font-size:13.5px;font-family:inherit;cursor:pointer;max-width:190px}
+.sel:disabled{opacity:.45;cursor:not-allowed}
+.sel option{background:#12293D;color:#fff}
+.note ul{margin:6px 0 0;padding-left:18px}
+.note li{margin:2px 0}
+
+/* ── Notis ─────────────────────────────────────────────── */
+.notes{padding:12px 22px 0;max-width:1180px;margin:0 auto}
+.note{border-radius:8px;padding:11px 15px;font-size:13.5px;margin-bottom:9px;line-height:1.5}
+.note.ok{background:#E7EFF0;color:#184C4B}
+.note.warn{background:#FBF0E2;color:#7A5320}
+.note.err{background:#F6E4E4;color:#7E3232}
+.note b{font-weight:700}
+
+/* ── Panel muat naik ───────────────────────────────────── */
+.panel{max-width:1240px;margin:18px auto 0;background:#fff;border-radius:12px;
+  padding:22px 24px 20px;box-shadow:0 2px 12px rgba(18,41,61,.10)}
+.panel.tutup{display:none}
+.panel-head h2{margin:0 0 4px;font-family:Cambria,Georgia,serif;font-size:20px;color:var(--ink)}
+.panel-head p{margin:0 0 16px;font-size:13px;color:var(--muted);line-height:1.5}
+.slots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media (max-width:980px){.slots{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.slots{grid-template-columns:1fr}}
+.slot{background:var(--mist);border-radius:9px;padding:14px 15px 13px;
+  border:1.5px solid transparent;transition:.15s}
+.slot.isi{border-color:var(--teal);background:#EAF2F2}
+.slot-num{width:22px;height:22px;border-radius:50%;background:var(--ink);color:#fff;
+  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  margin-bottom:9px}
+.slot.isi .slot-num{background:var(--teal)}
+.slot-title{font-size:13.5px;font-weight:700;color:var(--ink);line-height:1.3}
+.slot-desc{font-size:11.5px;color:var(--muted);margin:3px 0 10px;line-height:1.4;min-height:32px}
+.slot-btn{width:100%;background:#fff;color:var(--ink);border:1px solid var(--line);
+  border-radius:6px;padding:7px 10px;font-size:12.5px;font-weight:600;cursor:pointer;
+  font-family:inherit;transition:.15s}
+.slot-btn:hover{border-color:var(--teal);color:var(--teal)}
+.slot-files{margin-top:9px;font-size:11.5px;color:var(--muted);line-height:1.5}
+.slot-files b{color:var(--teal);display:block;font-size:11.5px}
+.slot-files .fail{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.slot-files .salah{color:var(--crimson)}
+.panel-foot{display:flex;align-items:center;gap:12px;margin-top:18px;
+  padding-top:16px;border-top:1px solid var(--line);flex-wrap:wrap}
+.btn-lg{padding:11px 26px;font-size:14.5px}
+.panel-status{font-size:12.5px;color:var(--muted)}
+
+/* ── Kawasan slaid ─────────────────────────────────────── */
+#deck{padding:20px 0 60px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.slide{position:relative;width:13.333in;height:7.5in;background:#fff;overflow:hidden;
+  box-shadow:0 3px 16px rgba(18,41,61,.16);flex:none;
+  transform-origin:top center}
+.slide.dark{background:var(--ink)}
+.blk{position:absolute}
+
+/* ── Slaid tajuk ───────────────────────────────────────── */
+.t-band{position:absolute;left:0;top:5.9in;width:100%;height:1.6in;background:#0C1E2E}
+.t-eyebrow{position:absolute;left:.55in;top:1.75in;font-size:13pt;color:#7FB2C4;
+  letter-spacing:3.2px;font-weight:700;text-transform:uppercase}
+.t-title{position:absolute;left:.55in;top:2.15in;width:10.5in;font-family:Cambria,Georgia,serif;
+  font-size:46pt;color:#fff;font-weight:700;line-height:1.08}
+.t-period{position:absolute;left:.55in;top:4.12in;font-family:Cambria,Georgia,serif;
+  font-size:26pt;color:var(--ice);font-style:italic}
+.t-foot1{position:absolute;left:.55in;top:6.25in;font-size:12pt;color:#fff}
+.t-foot1 span,.t-foot2 span,.t-date span{color:#6E8FA3}
+.t-foot2{position:absolute;left:.55in;top:6.62in;font-size:11pt;color:#C7D8E2}
+.t-date{position:absolute;right:.58in;top:6.25in;font-size:12pt;color:#6E8FA3}
+
+/* ── Slaid pembahagi ───────────────────────────────────── */
+.s-num{position:absolute;left:.55in;top:2.05in;width:.95in;height:.95in;border-radius:50%;
+  background:var(--teal);color:#fff;font-family:Cambria,Georgia,serif;font-size:34pt;
+  font-weight:700;display:flex;align-items:center;justify-content:center}
+.s-title{position:absolute;left:.55in;top:3.25in;width:7.2in;font-family:Cambria,Georgia,serif;
+  font-size:42pt;color:#fff;font-weight:700;line-height:1.08}
+.s-items{position:absolute;left:8.15in;top:2.15in;width:4.7in}
+.s-item{height:.62in;display:flex;align-items:center;font-size:14pt;color:#C7D8E2}
+.s-item i{width:.16in;height:.16in;border-radius:50%;background:#5E9EB5;margin-right:.22in;flex:none}
+
+/* ── Kepala slaid kandungan ────────────────────────────── */
+.c-eyebrow{position:absolute;left:.55in;top:.30in;font-size:10pt;color:var(--teal);
+  font-weight:700;letter-spacing:2.2px;text-transform:uppercase}
+.c-title{position:absolute;left:.55in;top:.52in;width:11.2in;font-family:Cambria,Georgia,serif;
+  font-size:27pt;color:var(--ink);font-weight:700;line-height:1.2}
+.c-period{position:absolute;right:.58in;top:.32in;font-size:10pt;color:var(--muted)}
+.c-foot{position:absolute;left:.55in;top:6.98in;font-size:10pt;color:var(--muted)}
+.c-page{position:absolute;right:.58in;top:6.98in;font-size:10pt;color:var(--muted)}
+
+/* ── Blok ──────────────────────────────────────────────── */
+.card{background:var(--mist);border-radius:.06in}
+.card-title{position:absolute;left:.28in;top:.14in;font-size:12pt;color:var(--ink);font-weight:700}
+.card-note{position:absolute;left:.28in;top:.43in;font-size:9.5pt;color:var(--muted)}
+
+.stat{border-radius:.06in}
+.stat-label{position:absolute;left:.26in;top:.17in;font-size:9.5pt;font-weight:700;
+  letter-spacing:1.2px;text-transform:uppercase;line-height:1.25}
+.stat-value{position:absolute;left:.24in;top:.33in;font-family:Cambria,Georgia,serif;
+  font-weight:700;line-height:1.15}
+/* Mesti kekal absolute - .blk datang lebih awal dalam fail ini, jadi
+   position:relative di sini akan menindihnya dan carta akan terkeluar kad. */
+.chartwrap{position:absolute;overflow:hidden}
+.chartwrap canvas{width:100% !important;height:100% !important;display:block}
+.stat-sub{position:absolute;left:.26in;bottom:.12in;font-size:10pt}
+
+.fstep{border-radius:.07in}
+.fstep .stat-label{left:.2in;top:.19in;width:calc(100% - .4in)}
+.fstep-value{position:absolute;left:.18in;top:.66in;font-family:Cambria,Georgia,serif;
+  font-size:38pt;font-weight:700;line-height:1.15}
+.fstep .stat-sub{left:.2in}
+.farrow{background:var(--line);clip-path:polygon(0 25%,55% 25%,55% 0,100% 50%,55% 100%,55% 75%,0 75%)}
+
+.segbar{display:flex;width:100%;overflow:hidden}
+.seg{display:flex;align-items:center;justify-content:center;min-width:.22in}
+.seg span{color:#fff;font-weight:700;font-size:11pt}
+.seglegend{display:flex;margin-top:.16in}
+.segleg{flex:1;display:flex;align-items:center;font-size:9.5pt;color:var(--text)}
+.segleg i{width:.15in;height:.15in;margin-right:.09in;flex:none}
+
+.insight{background:#E7EFF0;border-radius:.06in;height:.62in;display:flex;
+  align-items:center;padding:0 .24in 0 .22in}
+.insight i{width:.22in;height:.22in;border-radius:50%;background:var(--teal);margin-right:.12in;flex:none}
+.insight span{font-size:10.5pt;color:#184C4B;line-height:1.3}
+
+.tbl{border-collapse:collapse;width:100%;table-layout:fixed}
+.tbl th{background:var(--ink);color:#fff;font-weight:700;text-align:left;
+  padding:.06in .1in;border:.5pt solid var(--line)}
+.tbl th.c{text-align:center}
+.tbl td{padding:.06in .1in;border:.5pt solid var(--line);background:#fff}
+.tbl tbody tr:nth-child(even) td{background:var(--mist)}
+.tbl td.c{text-align:center}
+
+.rank{height:.52in;display:flex;align-items:center;font-size:10.5pt}
+.rank .rl{flex:1;color:var(--text)}
+.rank .rb{width:1.35in;height:.17in;flex:none;display:flex}
+.rank .rb i{height:100%;display:block}
+.rank .rv{width:.42in;text-align:right;font-weight:700;color:var(--ink)}
+.minilabel{font-size:11pt;font-weight:700;color:var(--ink)}
+.finding{font-size:9.5pt;color:var(--muted);font-style:italic;line-height:1.3}
+.para{font-size:11pt;color:var(--text);line-height:1.45}
+
+/* ── Cetakan: PDF landscape saiz slaid ─────────────────── */
+@page{size:13.333in 7.5in;margin:0}
+@media print{
+  body{background:#fff}
+  .bar,.notes,.hint,.panel{display:none !important}
+  #deck{padding:0;gap:0;display:block}
+  .slide{box-shadow:none;transform:none !important;margin:0;page-break-after:always;
+    break-after:page;width:13.333in;height:7.5in}
+  .slide:last-child{page-break-after:auto;break-after:auto}
+}
+
+.hint{max-width:1180px;margin:0 auto;padding:4px 22px 0;font-size:12.5px;color:#5D7183}
